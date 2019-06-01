@@ -167,16 +167,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="BoardController.h" />
+    <ClInclude Include="BoardView.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="IntroController.h" />
+    <ClInclude Include="IntroView.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="ScoreController.h" />
+    <ClInclude Include="ScoreView.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Achtung die Kurve.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="BoardController.cpp" />
+    <ClCompile Include="BoardView.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="IntroController.cpp" />
+    <ClCompile Include="IntroView.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ScoreController.cpp" />
+    <ClCompile Include="ScoreView.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
