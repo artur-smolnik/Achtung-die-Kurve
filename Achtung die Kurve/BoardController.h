@@ -1,7 +1,6 @@
 #pragma once
 #include "BoardView.h"
 #include "Board.h"
-#include <SFML/Graphics.hpp>
 class BoardController
 {
 	BoardView &boardView;
@@ -13,7 +12,7 @@ public:
 	void handleKeyboard(sf::Event &event);
 
 	void handleEvent(sf::Event &event);
-	bool isFinished();
-	void playAgain() { board.playAgain(); }
-};
+	bool isFinished() { return board.isFinished(); }
+	void playAgain();
 
+};

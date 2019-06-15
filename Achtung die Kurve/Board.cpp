@@ -6,7 +6,7 @@ Board::Board(int rows, int columns)
 {
 	this->rows = rows;
 	this->columns = columns;
-	this->finished = false;
+	finished = false;
 
 	board = new int*[1000];
 	for (int i = 0; i < 1000; ++i) board[i] = new int[1000];
@@ -34,27 +34,6 @@ void Board::setPlayers()
 void Board::move()
 {
 	
-	/*if (playerArrows.direction == UP)
-	{
-		if (playerArrows.row - 1 < 0 ) finished = true;
-		else playerArrows.row -= 1;
-	}
-	else if (playerArrows.direction == RIGHT)
-	{
-		if (playerArrows.col + 1 >= 1000) finished = true;
-		else playerArrows.col += 1;
-	}
-	else if (playerArrows.direction == DOWN)
-	{
-		if (playerArrows.row + 1 >= 1000) finished = true;
-		else playerArrows.row += 1;
-	}
-	else  if (playerArrows.direction == LEFT)
-	{
-		if (playerArrows.col - 1 < 0) finished = true;
-		else playerArrows.col -= 1;
-	}
-	*/
 	if (playerArrows.direction == UP)
 	{
 		if (playerArrows.row - 1 < 0 || detectCollision(playerArrows.row - 1, playerArrows.col)) finished = true;
@@ -146,9 +125,7 @@ bool Board::detectCollision(int row, int col)
 {
 	if (board[row][col] != -1) return true;
 	else return false;
-
-	/*if (board[row - 4][col] == -1 || board[row + 4][col] != -1 || board[row][col - 4] != -1 || board[row][col + 4] != -1) return true;
-	else return false;*/
+		
 }
 
 void Board::setBoard()
@@ -172,6 +149,24 @@ Directions Board::getDirection(int playerId)
 {
 	if (playerId == 0) return playerArrows.direction;
 	if (playerId == 1) return playerWsad.direction;
+}
+
+void Board::playAgain()
+{
+	setBoard();
+
+	playerArrows.direction = Directions(rand() % 4);
+	playerArrows.id = 0;
+	playerArrows.row = rand() % 1000;
+	playerArrows.col = rand() % 1000;
+
+	playerWsad.direction = Directions(rand() % 4);
+	playerWsad.id = 1;
+	playerWsad.row = rand() % 1000;
+	playerWsad.col = rand() % 1000;
+
+	finished = false;
+	
 }
 
 

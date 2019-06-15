@@ -19,6 +19,7 @@ class BoardView
 	
 	sf::RenderTexture renderTexture;
 	sf::Sprite sprite;
+	sf::RenderWindow &renderWindow;
 
 
 	
@@ -26,6 +27,7 @@ public:
 	BoardView();
 	BoardView(Board &board, sf::RenderWindow &renderWindow);
 	void draw(sf::RenderWindow &renderWindow);
+	void playAgain();
 
 };
 

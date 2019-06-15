@@ -27,34 +27,15 @@ int main()
 	Board board(100, 100);
 	BoardView boardView(board, renderWindow);
 	BoardController boardController(boardView, board);
-	/*ScoreView scoreView(board, renderWindow);
+	ScoreView scoreView(board, renderWindow);
 	ScoreController scoreController(scoreView);
 	IntroView introView(renderWindow);
 	IntroController introController(introView, board);
 	
 	GameManager gameManager(boardController, scoreController, introController);
-	*/
-	/*const int a = 10;
 	
-	int **b = new int*[1000];
-	for (int i = 0; i < 1000; ++i) b[i] = new int[1000];
-	
-	for (int i = 0; i < 1000; i++)
-	{
-		for (int j = 0; j < 1000; j++)
-		{
-			b[i][j] = j+i;
-		}
-	}
-
-	for (int i = 0; i < 1000; i++)
-	{
-		for (int j = 0; j < 1000; j++)
-		{
-			std::cout << b[i][j];
-		}
-		std::cout << std::endl;
-	}*/
+	introView.draw();
+	renderWindow.display();
 
 	while (renderWindow.isOpen())
 	{
@@ -63,18 +44,16 @@ int main()
 		while (renderWindow.pollEvent(event)) 
 		{
 			if (event.type == sf::Event::Closed) renderWindow.close();
-			boardController.handleEvent(event);
+			gameManager.handleEvent(event);
 		}
 
 
 		renderWindow.clear();
-		boardView.draw(renderWindow);
-		//gm.draw(w);
-
+		gameManager.draw(renderWindow);
 		renderWindow.display();
 	}
 
-	//getchar();
+	getchar();
 	//return 0;
 }
 

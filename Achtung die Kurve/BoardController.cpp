@@ -32,7 +32,6 @@ void BoardController::handleEvent(sf::Event &event)
 		{
 			board.setDirection(LEFT, 0);
 			std::cout << "LEFT" << std::endl;
-
 		}
 
 		if (event.key.code == sf::Keyboard::W && board.getDirection(1) != DOWN)
@@ -52,4 +51,15 @@ void BoardController::handleEvent(sf::Event &event)
 			board.setDirection(LEFT, 1);
 		}
 	}
+}
+
+void BoardController::playAgain()
+{
+	board.playAgain();
+	boardView.playAgain();
+}
+
+void BoardController::draw(sf::RenderWindow &renderWindow)
+{
+	boardView.draw(renderWindow);
 }
