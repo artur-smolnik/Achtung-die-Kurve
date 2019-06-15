@@ -25,7 +25,7 @@ int main()
 	sf::RenderWindow renderWindow(sf::VideoMode(1000, 1000), "My window");
 	
 	Board board(100, 100);
-	BoardView boardView(board);
+	BoardView boardView(board, renderWindow);
 	BoardController boardController(boardView, board);
 	/*ScoreView scoreView(board, renderWindow);
 	ScoreController scoreController(scoreView);
@@ -34,11 +34,27 @@ int main()
 	
 	GameManager gameManager(boardController, scoreController, introController);
 	*/
-
+	/*const int a = 10;
 	
-
+	int **b = new int*[1000];
+	for (int i = 0; i < 1000; ++i) b[i] = new int[1000];
 	
+	for (int i = 0; i < 1000; i++)
+	{
+		for (int j = 0; j < 1000; j++)
+		{
+			b[i][j] = j+i;
+		}
+	}
 
+	for (int i = 0; i < 1000; i++)
+	{
+		for (int j = 0; j < 1000; j++)
+		{
+			std::cout << b[i][j];
+		}
+		std::cout << std::endl;
+	}*/
 
 	while (renderWindow.isOpen())
 	{
@@ -58,8 +74,8 @@ int main()
 		renderWindow.display();
 	}
 
-	getchar();
-	return 0;
+	//getchar();
+	//return 0;
 }
 
 

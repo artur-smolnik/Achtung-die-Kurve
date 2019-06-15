@@ -24,7 +24,7 @@ class BoardView
 	
 public:
 	BoardView();
-	BoardView(Board &board);
+	BoardView(Board &board, sf::RenderWindow &renderWindow);
 	void draw(sf::RenderWindow &renderWindow);
 
 };

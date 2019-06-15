@@ -8,8 +8,8 @@ Board::Board(int rows, int columns)
 	this->columns = columns;
 	this->finished = false;
 
-	board = new int*[rows];		
-	for (int i = 0; i < rows; ++i) board[i] = new int[columns];
+	board = new int*[1000];
+	for (int i = 0; i < 1000; ++i) board[i] = new int[1000];
 	
 	
 	setBoard();
@@ -33,9 +33,10 @@ void Board::setPlayers()
 
 void Board::move()
 {
-	if (playerArrows.direction == UP)
+	
+	/*if (playerArrows.direction == UP)
 	{
-		if (playerArrows.row - 1 < 0) finished = true;
+		if (playerArrows.row - 1 < 0 ) finished = true;
 		else playerArrows.row -= 1;
 	}
 	else if (playerArrows.direction == RIGHT)
@@ -53,27 +54,87 @@ void Board::move()
 		if (playerArrows.col - 1 < 0) finished = true;
 		else playerArrows.col -= 1;
 	}
-
-	/*if (playerWsad.direction == UP)
+	*/
+	if (playerArrows.direction == UP)
 	{
-		if (playerWsad.row - 1 < 0) finished = true;
-		else playerWsad.row -= 1;
+		if (playerArrows.row - 1 < 0 || detectCollision(playerArrows.row - 1, playerArrows.col)) finished = true;
+		else
+		{
+			playerArrows.row -= 1;
+			board[playerArrows.row][playerArrows.col] = 0;
+
+		}
+	}
+	else if (playerArrows.direction == RIGHT)
+	{
+		if (playerArrows.col + 1 >= 1000 || detectCollision(playerArrows.row, playerArrows.col + 1)) finished = true;
+		else
+		{
+			playerArrows.col += 1;
+			board[playerArrows.row][playerArrows.col] = 0;
+
+		}
+	}
+	else if (playerArrows.direction == DOWN)
+	{
+		if (playerArrows.row + 1 >= 1000 || detectCollision(playerArrows.row + 1, playerArrows.col)) finished = true;
+		else
+		{
+			playerArrows.row += 1;
+			board[playerArrows.row][playerArrows.col] = 0;
+
+		}
+	}
+	else  if (playerArrows.direction == LEFT)
+	{
+		if (playerArrows.col - 1 < 0 || detectCollision(playerArrows.row, playerArrows.col - 1)) finished = true;
+		else
+		{
+			playerArrows.col -= 1;
+			board[playerArrows.row][playerArrows.col] = 0;
+		}
+	}
+
+
+
+	if (playerWsad.direction == UP)
+	{
+		if (playerWsad.row - 1 < 0 || detectCollision(playerWsad.row - 1, playerWsad.col)) finished = true;
+		else
+		{
+			playerWsad.row -= 1;
+			board[playerWsad.row][playerWsad.col] = 1;
+		}
 	}
 	else if (playerWsad.direction == RIGHT)
 	{
-		if (playerWsad.col + 1 >= columns) finished = true;
-		else playerWsad.col += 1;
+		if (playerWsad.col + 1 >= 1000 || detectCollision(playerWsad.row, playerWsad.col + 1)) finished = true;
+		else
+		{
+			playerWsad.col += 1;
+			board[playerWsad.row][playerWsad.col] = 1;
+		}
+
 	}
 	else if (playerWsad.direction == DOWN)
 	{
-		if (playerWsad.row + 1 >= rows) finished = true;
-		else playerWsad.row += 1;
+		if (playerWsad.row + 1 >= 1000 || detectCollision(playerWsad.row + 1, playerWsad.col)) finished = true;
+		else
+		{
+			playerWsad.row += 1;
+			board[playerWsad.row][playerWsad.col] = 1;
+		}
 	}
 	else  if (playerWsad.direction == LEFT)
 	{
-		if (playerWsad.col - 1 < 0) finished = true;
-		else playerWsad.col -= 1;
-	}*/
+		if (playerWsad.col - 1 < 0 || detectCollision(playerWsad.row, playerWsad.col - 1)) finished = true;
+		else
+		{
+			playerWsad.col -= 1;
+			board[playerWsad.row][playerWsad.col] = 1;
+		}
+	
+	}
 }
 
 void Board::claimField(int row, int col, int playerId)
@@ -84,14 +145,17 @@ void Board::claimField(int row, int col, int playerId)
 bool Board::detectCollision(int row, int col)
 {
 	if (board[row][col] != -1) return true;
-	return false;
+	else return false;
+
+	/*if (board[row - 4][col] == -1 || board[row + 4][col] != -1 || board[row][col - 4] != -1 || board[row][col + 4] != -1) return true;
+	else return false;*/
 }
 
 void Board::setBoard()
 {
-	for (int i = 0; i < rows; i++)
+	for (int i = 0; i < 1000; i++)
 	{
-		for (int j = 0; j < columns; j++)
+		for (int j = 0; j < 1000; j++)
 		{
 			board[i][j] = -1;
 		}
