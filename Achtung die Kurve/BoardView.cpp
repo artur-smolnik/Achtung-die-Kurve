@@ -1,29 +1,29 @@
 #include "pch.h"
 #include "BoardView.h"
+#include <Windows.h>
+#include <iostream>
 
 
 
 BoardView::BoardView(Board & board) : board(board)
 {
+	renderTexture.create(1000, 1000);
+	//renderTexture.setSmooth(true);
+	sprite.setTexture(renderTexture.getTexture());
 	
-	
+	//renderTexture.clear();
+	circleShape.setRadius(10);
+	circleShape.setPosition(board.getPlayerArrows().row, board.getPlayerArrows().col);
+	renderTexture.draw(circleShape);
+	circleShape.setPosition(board.getPlayerWsad().row, board.getPlayerWsad().col);
+	renderTexture.draw(circleShape);
+
+	renderTexture.display();
+	//setWindowSize(renderWindow);
+
 }
 
-void BoardView::setRectanglesVector()
-{
-	for (int i = 0; i < board.getRows(); i++)
-	{
-		for (int j = 0; j < board.getColumns(); j++)
-		{
-			sf::RectangleShape rectangle(sf::Vector2f(size, size));
-			rectangle.setFillColor(sf::Color::Green);
-			rectangle.setPosition(x0 + j * size + j * gap, y0 + i * size + i * gap);
-			rectangles.push_back(rectangle);
-		}
-	}
 
-	
-}
 
 void BoardView::setWindowSize(sf::RenderWindow &renderWindow)
 {
@@ -39,43 +39,22 @@ void BoardView::setWindowSize(sf::RenderWindow &renderWindow)
 
 void BoardView::draw(sf::RenderWindow &renderWindow)
 {
+	Sleep(10);
+	board.move();
 	if (!(renderWindow.getSize().x == board.getColumns() * size + 2 * x0 + (board.getColumns() - 1)*gap && renderWindow.getSize().y == board.getRows() * size + 2 * y0 + (board.getRows() - 1)*gap)) //do once
 	{
-		setWindowSize(renderWindow);
-		for (int i = 0; i < board.getRows(); i++)
-		{
-			for (int j = 0; j < board.getColumns(); j++)
-			{
-				sf::RectangleShape rectangle(sf::Vector2f(size, size));
-				rectangle.setFillColor(sf::Color::Green);
-				rectangle.setPosition(x0 + j * size + j * gap, y0 + i * size + i * gap);
-				rectangles.push_back(rectangle);
-			}
-		}
-
-		for (int i = 0; i < rectangles.size(); i++)
-		{
-			renderWindow.draw(rectangles[i]);
-		}
-		arrowsRectangle.setSize((sf::Vector2f(size, size)));
-		arrowsRectangle.setFillColor(sf::Color::Red);
-		arrowsRectangle.setPosition(x0 + board.getPlayerArrows().headCol * size + board.getPlayerArrows().headCol * gap, y0 + board.getPlayerArrows().headRow * size + board.getPlayerArrows().headRow * gap);
-		renderWindow.draw(arrowsRectangle);
-
-		wsadRectangle.setSize((sf::Vector2f(size, size)));
-		wsadRectangle.setFillColor(sf::Color::Blue);
-		wsadRectangle.setPosition(x0 + board.getPlayerWsad().headCol * size + board.getPlayerWsad().headCol * gap, y0 + board.getPlayerWsad().headRow * size + board.getPlayerWsad().headRow * gap);
-		renderWindow.draw(wsadRectangle);
-
+		
 	}
+
+
+	circleShape.setPosition(board.getPlayerArrows().col, board.getPlayerArrows().row);
+	renderTexture.draw(circleShape);
+	/*circleShape.setPosition(board.getPlayerWsad().row, board.getPlayerWsad().col);
+	renderTexture.draw(circleShape);*/
+	renderTexture.display();
+
+	renderWindow.draw(sprite);
 	
-	board.move();
-	//collision detection
-	//arrowsRectangle.move(sf::Vector2f(size, size))
-	//renderWindow.draw(arrowsRectangle);
-	//wsadRectangle.setPosition(x0 + board.getPlayerWsad().headCol * size + board.getPlayerWsad().headCol * gap, y0 + board.getPlayerWsad().headRow * size + board.getPlayerWsad().headRow * gap);
-	//renderWindow.draw(wsadRectangle);
 	
-	
-	
+
 }

@@ -10,18 +10,18 @@ struct Player
 {
 	Directions direction;
 	int id;
-	int headRow;
-	int headCol;
+	int row;
+	int col;
 };
 class Board
 {
 	int rows, columns;
 	Player playerWsad;
 	Player playerArrows;
-	int board[300][300]; //keeps id info
+	
+	int** board; //keeps id info
 	bool finished;
 	void setStartingPosition();
-	bool detectCollision();
 	void setPlayers();
 
 	void setBoard();
@@ -35,10 +35,12 @@ public:
 	int getRows() { return rows; }
 	int getColumns() { return columns; }
 	void move();
-	int getFieldId(int row, int col) { return board[row][col]; }
+	//int getFieldId(int row, int col) { return board[row][col]; }
 	Player getPlayerWsad() { return playerWsad; }
 	Player getPlayerArrows() { return playerArrows;  }
-		
-		
+	void claimField(int row, int col, int playerId);
+	bool detectCollision(int row, int col);
+	int getFieldId(int row, int col) { return board[row][col]; }
+
 };
 

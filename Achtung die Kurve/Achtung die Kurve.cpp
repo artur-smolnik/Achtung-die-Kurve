@@ -36,13 +36,10 @@ int main()
 	*/
 
 	
-		
 
 	
 
 
-	/*boardView.draw(renderWindow);
-	renderWindow.display();*/
 	while (renderWindow.isOpen())
 	{
 
@@ -67,113 +64,3 @@ int main()
 
 
 
-
-/*
-void handleKeyboardArrows(sf::RectangleShape &rectangleShape, std::vector<sf::FloatRect> &positions)
-{
-
-	srand(time(NULL));
-	while (true)
-	{	
-		Sleep(3);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-		{
-			std::cout << "Up" << std::endl;
-			rectangleShape.move(sf::Vector2f(0, -2));
-			for (int i = 0; i < positions.size()- 5; i++)
-			{
-				if(positions[i].height == NULL) 
-				{
-					std::cout << "        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-					break;
-				}
-				if(positions[i].intersects(rectangleShape.getGlobalBounds()))
-				{
-					std::cout << "        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-					break;
-				}
-				else positions.push_back(rectangleShape.getGlobalBounds());
-			}
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-		{
-			std::cout << "RIGHT" << std::endl;
-			rectangleShape.move(sf::Vector2f(2, 0));
-			for (int i = 0; i < positions.size() - 5; i++)
-			{
-				if (positions[i].height == NULL) break;
-				if (positions[i].intersects(rectangleShape.getGlobalBounds()))
-				{
-					std::cout << "        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-					break;
-				}
-				else positions.push_back(rectangleShape.getGlobalBounds());
-			}
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-		{
-			std::cout << "DOWN" << std::endl;
-			rectangleShape.move(sf::Vector2f(0, 2));
-			for (int i = 0; i < positions.size() - 5; i++)
-			{
-				if (positions[i].height == NULL) break;
-				if (positions[i].intersects(rectangleShape.getGlobalBounds()))
-				{
-					std::cout << "        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-					break;
-				}
-				else positions.push_back(rectangleShape.getGlobalBounds());
-			}
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-		{
-			std::cout << "LEFT" << std::endl;
-			rectangleShape.move(sf::Vector2f(-2, 0));
-			for (int i = 0; i < positions.size() - 5; i++)
-			{
-				if (positions[i].height == NULL)
-				{
-					for (int i = 0; i < positions.size() - 5; i++) std::cout << positions.size() << std::endl;
-					break;
-				}
-				if (positions[i].intersects(rectangleShape.getGlobalBounds()))
-				{
-					std::cout << "        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-					break;
-				}
-				else positions.push_back(rectangleShape.getGlobalBounds());
-			}
-		}
-	//	rectangleShape.move(sf::Vector2f(0, -2));
-		std::cout << positions.size() << std::endl;
-	}
-}
-
-void handleKeyboardWsad()
-{
-	while (true)
-	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		{
-			std::cout << "W" << std::endl;
-			Sleep(70);
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		{
-			std::cout << "S" << std::endl;
-			Sleep(70);
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		{
-			std::cout << "A" << std::endl;
-			Sleep(70);
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		{
-			std::cout << "D" << std::endl;
-			Sleep(70);
-		}
-	}
-}
-
-*/

@@ -7,6 +7,11 @@ Board::Board(int rows, int columns)
 	this->rows = rows;
 	this->columns = columns;
 	this->finished = false;
+
+	board = new int*[rows];		
+	for (int i = 0; i < rows; ++i) board[i] = new int[columns];
+	
+	
 	setBoard();
 	
 	setPlayers();
@@ -15,60 +20,71 @@ Board::Board(int rows, int columns)
 
 void Board::setPlayers()
 {
-	playerArrows.direction = Directions(rand() % 2);
+	playerArrows.direction = Directions(rand() % 4);
 	playerArrows.id = 0;
-	playerArrows.headRow = rand() % rows;
-	playerArrows.headCol = rand() % columns;
+	playerArrows.row = rand() % 1000;
+	playerArrows.col = rand() % 1000;
 
-	playerWsad.direction = Directions(rand() % 2);
+	playerWsad.direction = Directions(rand() % 4);
 	playerWsad.id = 1;
-	playerWsad.headRow = rand() % rows;
-	playerWsad.headCol = rand() % columns;
+	playerWsad.row = rand() % 1000;
+	playerWsad.col = rand() % 1000;
 }
 
 void Board::move()
 {
 	if (playerArrows.direction == UP)
 	{
-		if (playerArrows.headRow - 1 < 0) playerArrows.headRow = rows - 1;
-		else playerArrows.headRow -= 1;
+		if (playerArrows.row - 1 < 0) finished = true;
+		else playerArrows.row -= 1;
 	}
 	else if (playerArrows.direction == RIGHT)
 	{
-		if (playerArrows.headCol + 1 >= columns) playerArrows.headCol = 0;
-		else playerArrows.headCol += 1;
+		if (playerArrows.col + 1 >= 1000) finished = true;
+		else playerArrows.col += 1;
 	}
 	else if (playerArrows.direction == DOWN)
 	{
-		if (playerArrows.headRow + 1 >= rows) playerArrows.headRow = 0;
-		else playerArrows.headRow += 1;
+		if (playerArrows.row + 1 >= 1000) finished = true;
+		else playerArrows.row += 1;
 	}
 	else  if (playerArrows.direction == LEFT)
 	{
-		if (playerArrows.headCol - 1 < 0) playerArrows.headCol = columns - 1;
-		else playerArrows.headCol -= 1;
+		if (playerArrows.col - 1 < 0) finished = true;
+		else playerArrows.col -= 1;
 	}
 
-	if (playerWsad.direction == UP)
+	/*if (playerWsad.direction == UP)
 	{
-		if (playerWsad.headRow - 1 < 0) playerWsad.headRow = rows - 1;
-		else playerWsad.headRow -= 1;
+		if (playerWsad.row - 1 < 0) finished = true;
+		else playerWsad.row -= 1;
 	}
 	else if (playerWsad.direction == RIGHT)
 	{
-		if (playerWsad.headCol + 1 >= columns) playerWsad.headCol = 0;
-		else playerWsad.headCol += 1;
+		if (playerWsad.col + 1 >= columns) finished = true;
+		else playerWsad.col += 1;
 	}
 	else if (playerWsad.direction == DOWN)
 	{
-		if (playerWsad.headRow + 1 >= rows) playerWsad.headRow = 0;
-		else playerWsad.headRow += 1;
+		if (playerWsad.row + 1 >= rows) finished = true;
+		else playerWsad.row += 1;
 	}
 	else  if (playerWsad.direction == LEFT)
 	{
-		if (playerWsad.headCol - 1 < 0) playerWsad.headCol = columns - 1;
-		else playerWsad.headCol -= 1;
-	}
+		if (playerWsad.col - 1 < 0) finished = true;
+		else playerWsad.col -= 1;
+	}*/
+}
+
+void Board::claimField(int row, int col, int playerId)
+{
+	board[row][col] = playerId;
+}
+
+bool Board::detectCollision(int row, int col)
+{
+	if (board[row][col] != -1) return true;
+	return false;
 }
 
 void Board::setBoard()
@@ -82,16 +98,16 @@ void Board::setBoard()
 	}
 }
 
-void Board::setDirection(Directions dir, int id)
+void Board::setDirection(Directions dir, int playerId)
 {
-	if (id == 0) playerArrows.direction = dir;
-	if (id == 1) playerWsad.direction = dir;
+	if (playerId == 0) playerArrows.direction = dir;
+	if (playerId == 1) playerWsad.direction = dir;
 }
 
-Directions Board::getDirection(int id)
+Directions Board::getDirection(int playerId)
 {
-	if (id == 0) return playerArrows.direction;
-	if (id == 1) return playerWsad.direction;
+	if (playerId == 0) return playerArrows.direction;
+	if (playerId == 1) return playerWsad.direction;
 }
 
 
