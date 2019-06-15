@@ -33,9 +33,11 @@ int main()
 	IntroController introController(introView, board);
 	
 	GameManager gameManager(boardController, scoreController, introController);
-	
-	introView.draw();
+	scoreController.draw(renderWindow);
 	renderWindow.display();
+
+
+	/*
 
 	while (renderWindow.isOpen())
 	{
@@ -51,7 +53,7 @@ int main()
 		renderWindow.clear();
 		gameManager.draw(renderWindow);
 		renderWindow.display();
-	}
+	}*/
 
 	getchar();
 	//return 0;

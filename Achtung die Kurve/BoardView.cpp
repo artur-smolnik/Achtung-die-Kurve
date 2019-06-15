@@ -38,9 +38,7 @@ void BoardView::setWindowSize(sf::RenderWindow &renderWindow)
 void BoardView::draw(sf::RenderWindow &renderWindow)
 {
 	Sleep(5);
-	/*if(board.detectCollision(board.getPlayerArrows().row, board.getPlayerArrows().col)!=-1)
-	std::cout << board.detectCollision(board.getPlayerArrows().row, board.getPlayerArrows().col);*/
-
+	
 	board.move();
 	if (!(renderWindow.getSize().x == board.getColumns() * size + 2 * x0 + (board.getColumns() - 1)*gap && renderWindow.getSize().y == board.getRows() * size + 2 * y0 + (board.getRows() - 1)*gap)) //do once
 	{
