@@ -5,7 +5,7 @@ IntroView::IntroView(sf::RenderWindow &renderWindow) : renderWindow(renderWindow
 {
 }
 
-void IntroView::draw()
+void IntroView::draw(sf::RenderWindow &renderWindow)
 {
 	if (!font.loadFromFile("airstrike.ttf")) {
 		abort();

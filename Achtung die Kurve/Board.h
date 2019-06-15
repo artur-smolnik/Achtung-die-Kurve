@@ -20,8 +20,7 @@ class Board
 	Player playerArrows;
 	
 	int** board; //keeps id info
-	bool finished;
-	void setStartingPosition();
+	bool finished;	
 	void setPlayers();
 
 	void setBoard();

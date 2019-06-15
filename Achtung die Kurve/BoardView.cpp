@@ -9,30 +9,14 @@ BoardView::BoardView(Board & board, sf::RenderWindow &renderWindow) : board(boar
 {
 	
 	renderTexture.create(1000, 1000);
-	//renderTexture.setSmooth(true);
 	sprite.setTexture(renderTexture.getTexture());
-	
-	//renderTexture.clear();
 	circleShape.setRadius(3);
-	
-	setWindowSize(renderWindow);
-
 	renderTexture.display();
 	
 }
 
 
 
-void BoardView::setWindowSize(sf::RenderWindow &renderWindow)
-{
-	int x, y;
-	/*x = board.getColumns() * size + 2 * x0 + (board.getColumns() - 1)*gap;
-	y = board.getRows() * size + 2 * y0 + (board.getRows() - 1)*gap;*/
-	sf::View view;
-	view.setSize(renderWindow.getSize().x, renderWindow.getSize().y);
-	renderWindow.setView(view);
-	renderWindow.create(sf::VideoMode(1000, 1000), "Kurve Fever");
-}
 
 
 void BoardView::draw(sf::RenderWindow &renderWindow)
@@ -62,5 +46,4 @@ void BoardView::playAgain()
 {
 	renderTexture.clear();
 	board.playAgain();
-	setWindowSize(renderWindow);
 }

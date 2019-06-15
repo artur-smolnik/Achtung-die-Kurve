@@ -11,7 +11,7 @@ class IntroController
 public:
 	IntroController(IntroView &introView, Board &board);
 	void handleEvent();
-	void draw();
+	void draw(sf::RenderWindow &renderWindow);
 	bool isFinished() const { return finished; }
 	void setFinishedToFalse() { finished = false; }
 };

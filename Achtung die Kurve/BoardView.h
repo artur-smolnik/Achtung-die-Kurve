@@ -11,7 +11,7 @@ class BoardView
 	
 	Board &board;
 	
-	void setWindowSize(sf::RenderWindow &renderWindow);
+	
 	sf::Font font;
 	sf::Text txt;
 	

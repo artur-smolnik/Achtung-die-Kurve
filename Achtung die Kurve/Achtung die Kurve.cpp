@@ -33,27 +33,24 @@ int main()
 	IntroController introController(introView, board);
 	
 	GameManager gameManager(boardController, scoreController, introController);
-	scoreController.draw(renderWindow);
-	renderWindow.display();
+	/*scoreController.draw(renderWindow);
+	renderWindow.display();*/
 
 
-	/*
+	
 
 	while (renderWindow.isOpen())
 	{
-
 		sf::Event event;
 		while (renderWindow.pollEvent(event)) 
 		{
 			if (event.type == sf::Event::Closed) renderWindow.close();
 			gameManager.handleEvent(event);
 		}
-
-
 		renderWindow.clear();
 		gameManager.draw(renderWindow);
 		renderWindow.display();
-	}*/
+	}
 
 	getchar();
 	//return 0;

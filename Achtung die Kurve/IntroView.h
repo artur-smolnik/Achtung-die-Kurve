@@ -8,14 +8,14 @@ class IntroView
 	sf::Font font;
 	sf::Text txt;
 	sf::Text txt_play;
-	sf::RenderWindow &renderWindow;
 	sf::Text identities;
-
+	sf::RenderWindow &renderWindow;
 public:
+	
 	IntroView(sf::RenderWindow &renderWindow);
 	sf::RenderWindow &getWindow() { return renderWindow; }
 	sf::RectangleShape &getRect() { return rect; }
-	void draw();
+	void draw(sf::RenderWindow &renderWindow);
 
 
 };

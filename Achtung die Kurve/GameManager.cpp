@@ -12,7 +12,10 @@ void GameManager::updateState() {
 	{
 	case INTRO:
 		if (introController.isFinished())
+		{
 			state = GAME;
+		}
+			
 		break;
 	case GAME:
 		if (boardController.isFinished())
@@ -24,7 +27,8 @@ void GameManager::updateState() {
 			state = INTRO;
 			introController.setFinishedToFalse();
 			boardController.playAgain();
-			
+			scoreController.setFinishedToFalse();
+			scoreController.setPlayAgainToFalse();
 		}
 		if (scoreController.isFinished()) exit(0);
 		break;
@@ -50,7 +54,7 @@ void GameManager::handleEvent(sf::Event &event)
 	{
 		switch (state) {
 		case INTRO:
-			introController.draw();
+			introController.draw(renderWindow);
 			break;
 		case GAME:
 			boardController.draw(renderWindow);

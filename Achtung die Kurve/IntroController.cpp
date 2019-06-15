@@ -20,7 +20,8 @@ void IntroController::handleEvent()
 	}
 }
 
-void IntroController::draw()
+void IntroController::draw(sf::RenderWindow &renderWindow)
 {
-	introView.draw();
+	introView.draw(renderWindow);
 }
+

@@ -76,44 +76,44 @@ void Board::move()
 
 
 
-	if (playerWsad.direction == UP)
-	{
-		if (playerWsad.row - 1 < 0 || detectCollision(playerWsad.row - 1, playerWsad.col)) finished = true;
-		else
-		{
-			playerWsad.row -= 1;
-			board[playerWsad.row][playerWsad.col] = 1;
-		}
-	}
-	else if (playerWsad.direction == RIGHT)
-	{
-		if (playerWsad.col + 1 >= 1000 || detectCollision(playerWsad.row, playerWsad.col + 1)) finished = true;
-		else
-		{
-			playerWsad.col += 1;
-			board[playerWsad.row][playerWsad.col] = 1;
-		}
+	//if (playerWsad.direction == UP)
+	//{
+	//	if (playerWsad.row - 1 < 0 || detectCollision(playerWsad.row - 1, playerWsad.col)) finished = true;
+	//	else
+	//	{
+	//		playerWsad.row -= 1;
+	//		board[playerWsad.row][playerWsad.col] = 1;
+	//	}
+	//}
+	//else if (playerWsad.direction == RIGHT)
+	//{
+	//	if (playerWsad.col + 1 >= 1000 || detectCollision(playerWsad.row, playerWsad.col + 1)) finished = true;
+	//	else
+	//	{
+	//		playerWsad.col += 1;
+	//		board[playerWsad.row][playerWsad.col] = 1;
+	//	}
 
-	}
-	else if (playerWsad.direction == DOWN)
-	{
-		if (playerWsad.row + 1 >= 1000 || detectCollision(playerWsad.row + 1, playerWsad.col)) finished = true;
-		else
-		{
-			playerWsad.row += 1;
-			board[playerWsad.row][playerWsad.col] = 1;
-		}
-	}
-	else  if (playerWsad.direction == LEFT)
-	{
-		if (playerWsad.col - 1 < 0 || detectCollision(playerWsad.row, playerWsad.col - 1)) finished = true;
-		else
-		{
-			playerWsad.col -= 1;
-			board[playerWsad.row][playerWsad.col] = 1;
-		}
-	
-	}
+	//}
+	//else if (playerWsad.direction == DOWN)
+	//{
+	//	if (playerWsad.row + 1 >= 1000 || detectCollision(playerWsad.row + 1, playerWsad.col)) finished = true;
+	//	else
+	//	{
+	//		playerWsad.row += 1;
+	//		board[playerWsad.row][playerWsad.col] = 1;
+	//	}
+	//}
+	//else  if (playerWsad.direction == LEFT)
+	//{
+	//	if (playerWsad.col - 1 < 0 || detectCollision(playerWsad.row, playerWsad.col - 1)) finished = true;
+	//	else
+	//	{
+	//		playerWsad.col -= 1;
+	//		board[playerWsad.row][playerWsad.col] = 1;
+	//	}
+	//
+	//}
 }
 
 void Board::claimField(int row, int col, int playerId)

@@ -11,8 +11,6 @@ ScoreView::ScoreView(Board &board, sf::RenderWindow &renderWIndow) : board(board
 
 void ScoreView::draw(sf::RenderWindow &renderWindow)
 {
-	if (!(renderWindow.getSize().x == 600 && renderWindow.getSize().y == 500)) setWindowSize(renderWindow);
-	//txt.setString("SNAKE'S LENGTH: " + std::to_string(board.getSnakeLength()));
 	txt.setFont(font);
 	txt.setString("GAME OVER");
 	txt.setPosition(50, 50);
@@ -56,10 +54,3 @@ void ScoreView::draw(sf::RenderWindow &renderWindow)
 	renderWindow.draw(txt);
 }
 
-void ScoreView::setWindowSize(sf::RenderWindow &renderWindow)
-{
-	sf::View view;
-	view.setSize(renderWindow.getSize().x, renderWindow.getSize().y);
-	renderWindow.setView(view);
-	renderWindow.create(sf::VideoMode(1000, 1000), "ACHTUNG DIE KURVE");
-}

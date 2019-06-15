@@ -7,8 +7,7 @@ class ScoreView
 	sf::RectangleShape rect_play_again;
 	sf::Font font;
 	sf::Text txt;
-	Board &board;
-	void setWindowSize(sf::RenderWindow &renderWindow);
+	Board &board;	
 	sf::RenderWindow &renderWIndow;
 public:
 	ScoreView(Board &board, sf::RenderWindow &renderWIndow);
