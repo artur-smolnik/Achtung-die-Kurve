@@ -15,7 +15,6 @@ void GameManager::updateState() {
 		{
 			state = GAME;
 		}
-			
 		break;
 	case GAME:
 		if (boardController.isFinished())

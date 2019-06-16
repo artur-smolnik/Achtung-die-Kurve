@@ -21,7 +21,7 @@ BoardView::BoardView(Board & board, sf::RenderWindow &renderWindow) : board(boar
 
 void BoardView::draw(sf::RenderWindow &renderWindow)
 {
-	Sleep(5);
+	Sleep(4);
 	
 	board.move();
 	if (!(renderWindow.getSize().x == board.getColumns() * size + 2 * x0 + (board.getColumns() - 1)*gap && renderWindow.getSize().y == board.getRows() * size + 2 * y0 + (board.getRows() - 1)*gap)) //do once

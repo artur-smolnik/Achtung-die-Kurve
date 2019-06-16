@@ -63,10 +63,10 @@ public:
     /// \a texture can be NULL to disable texturing.
     /// If \a resetRect is true, the TextureRect property of
     /// the shape is automatically adjusted to the size of the new
-    /// texture. If it is false, the texture rect is left unchanged.
+    /// texture. If it is false, the texture rectPlay is left unchanged.
     ///
     /// \param texture   New texture
-    /// \param resetRect Should the texture rect be reset to the size of the new texture?
+    /// \param resetRect Should the texture rectPlay be reset to the size of the new texture?
     ///
     /// \see getTexture, setTextureRect
     ///
@@ -76,16 +76,16 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Set the sub-rectangle of the texture that the shape will display
     ///
-    /// The texture rect is useful when you don't want to display
+    /// The texture rectPlay is useful when you don't want to display
     /// the whole texture, but rather a part of it.
-    /// By default, the texture rect covers the entire texture.
+    /// By default, the texture rectPlay covers the entire texture.
     ///
-    /// \param rect Rectangle defining the region of the texture to display
+    /// \param rectPlay Rectangle defining the region of the texture to display
     ///
     /// \see getTextureRect, setTexture
     ///
     ////////////////////////////////////////////////////////////
-    void setTextureRect(const IntRect& rect);
+    void setTextureRect(const IntRect& rectPlay);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set the fill color of the shape

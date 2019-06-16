@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "IntroController.h"
+#include <iostream>
 
 
 IntroController::IntroController(IntroView &introView, Board &board) : introView(introView), board(board)
@@ -16,6 +17,45 @@ void IntroController::handleEvent()
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 		{
 			finished = true;
+		}
+	}
+	else if (introView.getRectSlowSpeed().getGlobalBounds().contains(translated_pos))
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+		{
+			introView.getTxtSlow().setOutlineColor(sf::Color::Cyan);
+			introView.getTxtNormal().setOutlineColor(sf::Color::Black);
+			introView.getTxtFast().setOutlineColor(sf::Color::Black);
+			introView.getTxtSlow().setOutlineThickness(5);
+			introView.getTxtNormal().setOutlineThickness(3);
+			introView.getTxtFast().setOutlineThickness(3);
+			board.setSpeed(1);
+		}
+	}
+	else if (introView.getRectNormalSpeed().getGlobalBounds().contains(translated_pos))
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+		{
+			introView.getTxtNormal().setOutlineColor(sf::Color::Cyan);
+			introView.getTxtSlow().setOutlineColor(sf::Color::Black);
+			introView.getTxtFast().setOutlineColor(sf::Color::Black);
+			introView.getTxtSlow().setOutlineThickness(3);
+			introView.getTxtNormal().setOutlineThickness(5);
+			introView.getTxtFast().setOutlineThickness(3);
+			board.setSpeed(2);
+		}
+	}
+	else if (introView.getRectFastSpeed().getGlobalBounds().contains(translated_pos))
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+		{
+			introView.getTxtFast().setOutlineColor(sf::Color::Cyan);
+			introView.getTxtSlow().setOutlineColor(sf::Color::Black);
+			introView.getTxtNormal().setOutlineColor(sf::Color::Black);
+			introView.getTxtSlow().setOutlineThickness(3);
+			introView.getTxtNormal().setOutlineThickness(3);
+			introView.getTxtFast().setOutlineThickness(5);
+			board.setSpeed(3);
 		}
 	}
 }
