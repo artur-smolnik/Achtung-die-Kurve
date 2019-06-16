@@ -18,7 +18,7 @@ BoardView::BoardView(Board & board, sf::RenderWindow &renderWindow) : board(boar
 	txt.setOutlineThickness(5);
 	txt.setPosition(370, 250);
 	txt.setCharacterSize(300);
-	rectangleShape.setFillColor(sf::Color::White);
+	rectangleShape.setFillColor(sf::Color::Black);
 	rectangleShape.setSize(sf::Vector2f(250, 250));
 	rectangleShape.setPosition(375, 350);
 	circleShape.setRadius(3);
