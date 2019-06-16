@@ -26,15 +26,42 @@ Board::~Board()
 
 void Board::setPlayers()
 {
-	playerArrows.direction = Directions(rand() % 4);
-	playerArrows.id = 0;
-	playerArrows.row = rand() % 1000;
-	playerArrows.col = rand() % 1000;
+	int tmpRow0, tmpCol0, tmpRow1, tmpCol1;
+	do
+	{
+		tmpRow0 = rand() % 1000;
+		tmpCol0 = rand() % 1000;
+		tmpRow1 = rand() % 1000;
+		tmpCol1 = rand() % 1000;
+	} while (tmpRow0 == tmpRow1 && tmpCol0 == tmpCol1 && (tmpRow0 > 340 || tmpRow0 < 600) && (tmpRow1 > 340 || tmpRow1 < 600) && (tmpCol0 > 340 || tmpCol0 < 600) && (tmpCol1 > 340 || tmpCol1 < 600));
 
-	playerWsad.direction = Directions(rand() % 4);
+	if (tmpRow0 < 100 || tmpRow0 > 900)
+	{
+		playerArrows.direction = RIGHT;
+	}
+	else if (tmpCol0 < 100 || tmpCol0 > 900)
+	{
+		playerArrows.direction = UP;
+	}
+	else playerArrows.direction = Directions(rand() % 4);
+	
+	playerArrows.id = 0;
+	playerArrows.row = tmpRow0;
+	playerArrows.col = tmpCol0;
+
+	if (tmpRow1 < 100 || tmpRow1 > 900)
+	{
+		playerWsad.direction = RIGHT;
+	}
+	else if (tmpCol1 < 100 || tmpCol1 > 900)
+	{
+		playerWsad.direction = UP;
+	}
+	else playerWsad.direction = Directions(rand() % 4);
+	
 	playerWsad.id = 1;
-	playerWsad.row = rand() % 1000;
-	playerWsad.col = rand() % 1000;
+	playerWsad.row = tmpRow1;
+	playerWsad.col = tmpCol1;
 }
 
 void Board::move()
