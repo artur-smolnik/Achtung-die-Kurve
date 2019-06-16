@@ -33,7 +33,7 @@ void Board::setPlayers()
 		tmpCol0 = rand() % 1000;
 		tmpRow1 = rand() % 1000;
 		tmpCol1 = rand() % 1000;
-	} while (tmpRow0 == tmpRow1 && tmpCol0 == tmpCol1 && (tmpRow0 > 340 || tmpRow0 < 600) && (tmpRow1 > 340 || tmpRow1 < 600) && (tmpCol0 > 340 || tmpCol0 < 600) && (tmpCol1 > 340 || tmpCol1 < 600));
+	} while ((tmpRow0 == tmpRow1 && tmpCol0 == tmpCol1) || (tmpRow0 > 340 && tmpRow0 < 600) || (tmpRow1 > 340 && tmpRow1 < 600) || (tmpCol0 > 340 && tmpCol0 < 600) || (tmpCol1 > 340 && tmpCol1 < 600));
 
 	if (tmpRow0 < 100 || tmpRow0 > 900)
 	{
