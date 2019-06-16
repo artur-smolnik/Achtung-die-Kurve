@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Board.h"
 #include "SFML/Graphics.hpp"
+
 Board::Board(int rows, int columns)
 {
 	this->rows = rows;

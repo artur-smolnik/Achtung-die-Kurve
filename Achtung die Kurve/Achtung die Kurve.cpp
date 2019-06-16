@@ -22,7 +22,7 @@
 int main()
 {
 	srand(time(NULL));
-	sf::RenderWindow renderWindow(sf::VideoMode(1000, 1000), "My window");
+	sf::RenderWindow renderWindow(sf::VideoMode(1000, 1000), "ACHTUNG DIE KURVE");
 	
 	Board board(100, 100);
 	BoardView boardView(board, renderWindow);
