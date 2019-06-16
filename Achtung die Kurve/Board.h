@@ -18,14 +18,13 @@ class Board
 	int rows, columns;
 	Player playerWsad;
 	Player playerArrows;
-	
 	int** board; //keeps id info
-	bool finished;	
+	bool finished;
 	void setPlayers();
 	void setBoard();
-	int speed;
 public:
 	Board(int rows, int columns);
+	~Board();
 	void setDirection(Directions dir, int id);
 	Directions getDirection(int id);
 	bool isFinished() { return finished; }
@@ -39,6 +38,5 @@ public:
 	void claimField(int row, int col, int playerId);
 	bool detectCollision(int row, int col);
 	int getFieldId(int row, int col) { return board[row][col]; }
-	void setSpeed(int speed) { this->speed = speed; }
 };
 

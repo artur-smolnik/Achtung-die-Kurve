@@ -30,11 +30,10 @@ int main()
 	ScoreView scoreView(board, renderWindow);
 	ScoreController scoreController(scoreView);
 	IntroView introView(renderWindow);
-	IntroController introController(introView, board);
+	IntroController introController(introView, board, boardView);
 	
 	GameManager gameManager(boardController, scoreController, introController);
-	/*scoreController.draw(renderWindow);
-	renderWindow.display();*/
+	
 
 
 	
@@ -52,8 +51,7 @@ int main()
 		renderWindow.display();
 	}
 
-	getchar();
-	//return 0;
+	return 0;
 }
 
 

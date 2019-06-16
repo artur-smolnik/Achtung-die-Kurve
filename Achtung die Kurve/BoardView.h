@@ -1,7 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "Board.h"
-#include <vector>
 
 
 
@@ -20,7 +19,7 @@ class BoardView
 	sf::RenderTexture renderTexture;
 	sf::Sprite sprite;
 	sf::RenderWindow &renderWindow;
-
+	int speed;
 
 	
 public:
@@ -28,6 +27,7 @@ public:
 	BoardView(Board &board, sf::RenderWindow &renderWindow);
 	void draw(sf::RenderWindow &renderWindow);
 	void playAgain();
+	void setSpeed(int speed) { this->speed = speed; }
 
 };
 

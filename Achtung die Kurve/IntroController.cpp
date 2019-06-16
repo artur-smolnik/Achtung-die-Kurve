@@ -1,9 +1,8 @@
 #include "pch.h"
 #include "IntroController.h"
-#include <iostream>
 
 
-IntroController::IntroController(IntroView &introView, Board &board) : introView(introView), board(board)
+IntroController::IntroController(IntroView &introView, Board &board, BoardView &boardView) : introView(introView), board(board), boardView(boardView)
 {
 }
 
@@ -29,7 +28,7 @@ void IntroController::handleEvent()
 			introView.getTxtSlow().setOutlineThickness(5);
 			introView.getTxtNormal().setOutlineThickness(3);
 			introView.getTxtFast().setOutlineThickness(3);
-			board.setSpeed(1);
+			boardView.setSpeed(3);
 		}
 	}
 	else if (introView.getRectNormalSpeed().getGlobalBounds().contains(translated_pos))
@@ -42,7 +41,7 @@ void IntroController::handleEvent()
 			introView.getTxtSlow().setOutlineThickness(3);
 			introView.getTxtNormal().setOutlineThickness(5);
 			introView.getTxtFast().setOutlineThickness(3);
-			board.setSpeed(2);
+			boardView.setSpeed(2);
 		}
 	}
 	else if (introView.getRectFastSpeed().getGlobalBounds().contains(translated_pos))
@@ -55,7 +54,7 @@ void IntroController::handleEvent()
 			introView.getTxtSlow().setOutlineThickness(3);
 			introView.getTxtNormal().setOutlineThickness(3);
 			introView.getTxtFast().setOutlineThickness(5);
-			board.setSpeed(3);
+			boardView.setSpeed(1);
 		}
 	}
 }
